@@ -4,7 +4,7 @@ import open from "../assets/open.png";
 import close from "../assets/close.png";
 import Screen2 from "./Screen2";
 
-export default function Content({ isMenuOpen }: any) {
+export default function Content({ isMenuOpen, isDarkMode }: any) {
   const [isDoubleScreen, setisDoubleScreen] = useState(true);
   return (
     <div
@@ -15,13 +15,15 @@ export default function Content({ isMenuOpen }: any) {
         className="flex gap-2"
         onClick={() => setisDoubleScreen((prev) => !prev)}
       >
-        {isDoubleScreen ? (
-          <img src={close} alt="" className=" w-[2rem] h-[2rem]" />
-        ) : (
-          <img src={open} alt="" className=" w-[2rem] h-[2rem]" />
-        )}
+        <img
+          src={isDoubleScreen ? close : open}
+          alt=""
+          className={`w-[2rem] h-[2rem] ${
+            isDarkMode && "filter invert-[100%]"
+          }`}
+        />
       </button>
-      <div className="w-full h-full h-[calc(100vh-64px-5rem)] mt-[1rem] mt-b-[1rem] ">
+      <div className="w-full h-full h-[calc(100vh-64px-80px)] mt-[1rem] mt-b-[1rem] ">
         <Screen1 isDoubleScreen={isDoubleScreen} />
         <Screen2 isDoubleScreen={isDoubleScreen} />
       </div>
