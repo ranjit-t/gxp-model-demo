@@ -8,7 +8,7 @@ export default function Content({ isMenuOpen, isDarkMode }: any) {
   const [isDoubleScreen, setisDoubleScreen] = useState(true);
   return (
     <div
-      className=" h-full p-[1rem] transition-width ease-in-out duration-100 shadow-lg "
+      className="h-full p-[1rem] transition-width ease-in-out duration-100 shadow-lg "
       style={{ width: isMenuOpen ? "calc(100% - 336px)" : "calc(100% - 48px)" }}
     >
       <button
